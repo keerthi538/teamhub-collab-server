@@ -54,21 +54,18 @@ const server = new Server({
       },
 
       store: async (data) => {
-        const documentUuid = data.documentName;
-        const state = data.state;
-
-        console.log(`Saving document: ${documentName}`);
-
         try {
+          const documentUuid = data.documentName;
+          const state = data.state;
+
           await pool.query(
             `UPDATE "Document" 
-             SET "yjsState" = $1, 
-                 "updatedAt" = CURRENT_TIMESTAMP
-             WHERE uuid = $3`,
+             SET "yjsState" = $1
+             WHERE uuid = $2`,
             [state, documentUuid],
           );
 
-          console.log(`Document saved: ${documentName}`);
+          console.log(`Document saved: ${documentUuid}`);
         } catch (error) {
           console.error("Error saving document:", error);
         }
