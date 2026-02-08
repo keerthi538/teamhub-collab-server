@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@hocuspocus/extension-database": "^3.4.4",
+    "@hocuspocus/server": "^3.4.4",
+    "dotenv": "^17.2.4",
+    "pg": "^8.18.0"
+  }
+}
