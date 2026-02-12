@@ -27,6 +27,7 @@ pool.on("error", (err) => {
 const server = new Server({
   name: "hocuspocus-server",
   port: 1234,
+  address: "0.0.0.0",
 
   onConnect: () => console.log("User connected"),
   onDisconnect: () => console.log("User disconnected"),
