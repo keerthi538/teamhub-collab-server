@@ -114,7 +114,7 @@ const server = new Server({
 
           await pool.query(
             `UPDATE "Document" 
-             SET "yjsState" = $1
+             SET "yjsState" = $1, "updatedAt" = NOW() AT TIME ZONE 'UTC'
              WHERE uuid = $2`,
             [state, documentUuid],
           );
